@@ -164,3 +164,24 @@ pip install -r requirements.txt requirements-dev.txt
 jupyter notebook         # explore the notebooks
 streamlit run app.py     # launch the dashboard
 ```
+
+## Data Ingestion & Cleaning
+in notebook 1, we use the Kaggle API to download the raw CSV into `inputs/datasets/raw/price_paid_records.csv`, then copy it to `outputs/datasets/collection/`.  
+
+in notebook 2, we clean the data by:
+- dropping obvious outliers in `price`  
+- parsing `Date of Transfer` into datetime  
+- encoding `property_type`, `old_new`, and `duration` as numeric or one-hot flags  
+- applying a log transform to `price`  
+- saving the cleaned dataset to `outputs/datasets/collection/HousePricesRecords_clean.csv`
+
+## Results & Insights
+we gathered several key findings from our analysis:
+
+- hypothesis tests confirmed new builds are significantly more expensive than established properties, and property type has a significant effect on price  
+- among counties, county A showed the highest average historical prices, while county B experienced the fastest growth over the period  
+- hypothesis tests confirmed new builds fetch significantly higher sale prices than established properties, and property type has a significant effect on price  
+- final model performance on the test set was MAE £69,667, RMSE £118,120, and R² 0.53, which falls short of our MAE < £5,000 target but still offers insight into market patterns  
+- because the model uses only 2017 data, it’s not ready for current‐day predictions without retraining on more recent data  
+
+these insights directly address our business requirements by demonstrating trends, validating hypotheses, and highlighting the need for updated data in production.
