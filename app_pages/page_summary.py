@@ -28,7 +28,7 @@ def page_summary_body() -> None:
 
     #  Dataset snapshot 
     st.subheader(" Data snapshot")
-    data_path = Path("../outputs/datasets/collection/HousePricesRecords_clean.csv")
+    data_path = Path("outputs/datasets/collection/HousePricesRecords_clean.csv")
 
     if data_path.exists():
         df = pd.read_csv(data_path)
