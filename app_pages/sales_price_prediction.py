@@ -8,7 +8,7 @@ def sales_price_prediction_body():
     st.write("Enter property details below and click **Predict Price** to get an estimated sale price.")
 
 # 1 Load data for dropdowns
-    data_path = "../outputs/datasets/collection/HousePricesRecords_clean.csv"
+    data_path = "outputs/datasets/collection/HousePricesRecords_clean.csv"
     df = pd.read_csv(data_path)
     df["Date of Transfer"] = pd.to_datetime(df["Date of Transfer"])
     max_date = df["Date of Transfer"].max()
