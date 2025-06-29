@@ -227,3 +227,15 @@ we’ve identified several issues that are actively tracked in the repo’s Issu
 - occasional Streamlit widget misalignment on mobile devices  
 - non-numeric columns slipping through the pipeline (e.g., town/city, county flags)  
 - dataset size (~22 million rows) can overwhelm local machines; currently we load only the 1,000 most recent 2017 records as a workaround  
+
+## Future Work & Roadmap
+we’ve identified several enhancements to make the tool even more useful:
+
+- **Expand feature set** with property style (modern, contemporary, cottage), number of bedrooms/bathrooms, kitchen size, and other interior attributes  
+- **Incorporate school catchment areas** and proximity to top-rated schools  
+- **Add transport metrics** such as distance to nearest bus stops, train stations, and major roads  
+- **Integrate geospatial data** for mapping price heatmaps and neighborhood boundaries  
+- **Include telecom service ratings** (mobile signal strength, broadband availability)  
+- **Offer real-time scoring** via an API so users can get up-to-date predictions on live data  
+- **User personalization**: allow filtering by lifestyle preferences (e.g., family-friendly, modern urban, rural retreat)  
+- **Cloud-scale processing**: move from local subset to full dataset in a scalable environment (e.g., AWS/GCP)   
