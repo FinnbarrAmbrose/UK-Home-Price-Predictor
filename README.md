@@ -15,7 +15,7 @@ We use the HM Land Registry “UK Housing Prices Paid” dataset from Kaggle, wh
 
 It includes columns such as `transaction_unique_identifier`, `price`, `date_of_transfer`, `property_type` (D, S, T, F, O), `old_new` (Y/N), `duration` (F/L), `town_city`, `district`, `county`, `ppd_category_type`, and `record_status`.  
 
-
+![data preview](images/dataset_preview.png)  
 
 Released under the Open Government Licence 3.0 (© Crown 2017).
 
@@ -33,11 +33,12 @@ We test two main market hypotheses using α = 0.05:
 **H1: new builds fetch higher sale prices than established properties**  
 we split prices into new (Y) vs old (N) and run a welch’s t-test.  
 t-statistic: –3.96, p-value: 0.0051 → **reject H₀: new builds are significantly more expensive**  
-
+![t-test results](images/hypothesis1_ttest.png)
 
 **H2: sale price varies by property type**  
 we group prices by type (D, F, S, T) and run a one-way anova.  
 F-statistic: 43.93, p-value: < 0.0001 → **reject H₀: property type affects price**  
+![ANOVA results](images/hypothesis2_anova.png)
 
 ## ML Business Case
 This is a regression problem.
@@ -45,7 +46,7 @@ This is a regression problem.
 - **failure:** MAE ≥ £5 000 or R² < 0.7
 
 latest model metrics:  
-
+![model performance](images/model_performance.png)
 
 deliverables include `house_price_pipeline.pkl` and a performance summary report.
 
@@ -96,18 +97,19 @@ User Story 4: As a developer, I want to keep the app updated so I can release im
 we built a Streamlit app with five pages, matching the navigation bar:
 
 1. **Project Overview** – overview of the project, data snapshot, and high-level metrics  
-
+   ![home page](images/home_page.png)
 
 2. **Correlation Analysis** – interactive plots showing relationships between features and sale price  
-
+   ![eda page](images/eda_page.png)
 
 3. **Sale Price Prediction** – input form for property features → instant price estimate, with a banner showing “MAE < £5 000 achieved”  
-
+   ![predict page](images/predict_page.png)
 
 4. **Hypothesis Validation** – statistical test results (t-tests, ANOVA) with decision verdicts  
-
+   ![hypothesis page](images/hypothesis1_ttest.png)
 
 5. **Machine Learning Model** – model performance metrics and details of the trained pipeline  
+   ![model page](images/model_performance.png)
 
 
 ## Technologies
@@ -171,7 +173,7 @@ $PORT (auto-assigned by platform)
 
 CORS is disabled via --server.enableCORS false
 
-note: Python version is pinned to 3.12 via the `.python-version` file.
+note: Python version is pinned to 3.12 via the `.python-version` file (used by [pyenv](https://github.com/pyenv/pyenv) or compatible tools).
 
 
 ## Data Ingestion & Cleaning
@@ -195,7 +197,7 @@ final evaluation on the test set yielded:
 - RMSE: £118,120  
 - R²: 0.53  
 
-> MAE ≥ £5,000, the model does **not** meet the original success threshold on historical data.
+> **⚠️ Warning:** Because MAE ≥ £5,000, the model does **not** meet the original success threshold on historical data.
 
 the final pipeline is saved to:  outputs/models/house_price_pipeline.pkl
 
@@ -216,7 +218,7 @@ we implemented both manual and automated tests to ensure data integrity and mode
 - **Data-quality tests (pytest):** verifies column counts, no unexpected nulls, correct data types.  
 - **Model-regression tests (pytest):** runs the final pipeline on a small sample and checks MAE remains under threshold.  
 - **CI/CD integration:** a GitHub Actions workflow runs all tests and executes notebooks on every push and pull request.  
-
+  ![CI workflow](images/ci_workflow.png)
 
 ## Known Issues
 we’ve identified several issues that are actively tracked in the repo’s Issues tab:
