@@ -2,6 +2,12 @@
 
 A predictive analytics project built to explore and model historical uk housing prices using the hm land registry “uk housing prices paid” dataset. this repo lets users:
 
+- browse county-level trends and compare new builds versus established properties  
+- test market hypotheses with welch’s t-tests and anova  
+- train and evaluate regression models to estimate sale prices within a target mae  
+- interact via a streamlit dashboard for real-time price prediction  
+
+designed for prospective buyers, sellers, analysts, and data enthusiasts who want a user-friendly interface for deep dives into the uk property market’s past performance.
 
 ## Dataset
 
@@ -32,7 +38,6 @@ t-statistic: –3.96, p-value: 0.0051 → **reject H₀: new builds are signific
 **H2: sale price varies by property type**  
 we group prices by type (D, F, S, T) and run a one-way anova.  
 F-statistic: 43.93, p-value: < 0.0001 → **reject H₀: property type affects price**  
-
 
 ## ML Business Case
 This is a regression problem.
@@ -125,3 +130,37 @@ _dev tools (in `requirements-dev.txt`):_
 - **data-profiling** for exploratory reports  
 - **ppscore** for model scoring insights  
 - **yellowbrick** for visual diagnostics  
+
+
+
+
+## Deployment & Usage
+We deploy the app on Heroku or Streamlit Cloud. below are the key files and commands:
+
+**Live Demo:**  
+https://house-price-for-uk-8c78f9120642.herokuapp.com/
+
+**Procfile**  
+```bash
+web: ./setup.sh && streamlit run app.py --server.port $PORT --server.enableCORS false
+```
+**setup.sh**
+```bash
+#!/usr/bin/env bash
+set -e
+mkdir -p outputs/datasets/collection outputs/models
+ls outputs/datasets/collection/*.csv || echo "‼ no CSV!"
+ls outputs/models/*.pkl         || echo "‼ no model!"
+echo "✅ setup OK".
+```
+
+**Running locally**
+```bash
+
+git clone https://github.com/YourUser/YourRepo.git
+cd YourRepo
+pip install -r requirements.txt requirements-dev.txt
+# add your Kaggle API token at ~/.kaggle/kaggle.json
+jupyter notebook         # explore the notebooks
+streamlit run app.py     # launch the dashboard
+```
