@@ -186,6 +186,8 @@ in notebook 2, we clean the data by:
 - applying a log transform to `price`  
 - saving the cleaned dataset to `outputs/datasets/collection/HousePricesRecords_clean.csv`
 
+
+
 ## Modeling & Evaluation
 we split the cleaned data into an 80/20 train/test set. using the feature-engine pipeline from notebook 2, we first established a linear regression baseline and then tuned a RandomForestRegressor with grid search over `n_estimators` (100, 200, 300) and `max_depth` (None, 5, 10).
 
@@ -201,6 +203,7 @@ final evaluation on the test set yielded:
 
 the final pipeline is saved to:  outputs/models/house_price_pipeline.pkl
 
+
 ## Results & Insights
 we gathered several key findings from our analysis:
 
@@ -211,6 +214,8 @@ we gathered several key findings from our analysis:
 - because the model uses only 2017 data, it’s not ready for current‐day predictions without retraining on more recent data  
 
 these insights directly address our business requirements by demonstrating trends, validating hypotheses, and highlighting the need for updated data in production.
+
+
 
 ## Testing
 we implemented both manual and automated tests to ensure data integrity and model reliability:
@@ -239,3 +244,10 @@ we’ve identified several enhancements to make the tool even more useful:
 - **Offer real-time scoring** via an API so users can get up-to-date predictions on live data  
 - **User personalization**: allow filtering by lifestyle preferences (e.g., family-friendly, modern urban, rural retreat)  
 - **Cloud-scale processing**: move from local subset to full dataset in a scalable environment (e.g., AWS/GCP)   
+
+## License & Contact
+this project is licensed under the MIT License.  
+
+feel free to reach out with questions or feedback:  
+- **GitHub:** [FinnbarrAmbrose](https://github.com/FinnbarrAmbrose)  
+- **LinkedIn:** [Finnbarr Ambrose](https://www.linkedin.com/in/finnbarr-ambrose-5682221b4/)  
