@@ -26,6 +26,11 @@ designed for prospective buyers, sellers, analysts, and data enthusiasts who wan
   - [Modeling \& Evaluation](#modeling--evaluation)
   - [Results \& Insights](#results--insights)
   - [Testing](#testing)
+  - [Future Code Quality Fixes (Linting Issues)](#future-code-quality-fixes-linting-issues)
+      - [Notebook: `01 - Data Collection.ipynb`](#notebook-01---data-collectionipynb)
+      - [Notebook: `05 - Model Training and Evaluation.ipynb`](#notebook-05---model-training-and-evaluationipynb)
+      - [Streamlit App: `sales_price_prediction.py`](#streamlit-app-sales_price_predictionpy)
+      - [Streamlit App: `ml_price_prediction.py`](#streamlit-app-ml_price_predictionpy)
   - [Known Issues](#known-issues)
   - [Credits / Acknowledgements](#credits--acknowledgements)
     - [YouTube Tutorials \& Learning Resources](#youtube-tutorials--learning-resources)
@@ -284,7 +289,40 @@ we implemented both manual and automated tests to ensure data integrity and mode
 - **Data-quality tests (pytest):** verifies column counts, no unexpected nulls, correct data types.  
 - **Model-regression tests (pytest):** runs the final pipeline on a small sample and checks MAE remains under threshold.  
 - **CI/CD integration:** a GitHub Actions workflow runs all tests and executes notebooks on every push and pull request.  
+- **Linting validation (CI Python Linter):** Code across notebooks and Streamlit scripts was scanned for PEP8 compliance. See [Future Code Quality Fixes](#future-code-quality-fixes-linting-issues) for a full results and improvement.
   ![CI workflow](images/ci_workflow.png)
+
+## Future Code Quality Fixes (Linting Issues)
+
+CI Python Linter (https://pep8ci.herokuapp.com/)
+
+#### Notebook: `01 - Data Collection.ipynb`
+- **Line Length (E501):** Many lines exceed the recommended limit (up to 246 characters).
+- **Whitespace and Formatting (E211, E225, E228, E231):** Frequent spacing inconsistencies around operators, parentheses, commas, and modulo operators.
+- **Indentation Issues (E111, E113):** Multiple incorrect or unexpected indentation instances.
+- **Module Import Placement (E402):** Several imports not placed at the top of the notebook.
+- **Trailing Whitespace/Newline (W291, W292)**
+
+#### Notebook: `05 - Model Training and Evaluation.ipynb`
+- **Import Placement (E402):** Multiple imports not placed at the top.
+- **Line Length (E501):** Lines significantly exceeding recommended length (up to 274 characters).
+- **Whitespace and Spacing (E211, E221, E231, E272):** Frequent spacing inconsistencies.
+- **Indentation (E112):** Incorrect indentation blocks identified.
+- **Trailing Whitespace/Newline Issues (W291, W292)**
+
+#### Streamlit App: `sales_price_prediction.py`
+- **Blank Lines (E302, E303):** Incorrect blank line spacing.
+- **Line Length (E501):** Several lines exceed the 79-character standard.
+- **Whitespace Errors (E221, E272, W293):** Multiple spacing inconsistencies around operators.
+- **Missing Newline at EOF (W292)**
+
+#### Streamlit App: `ml_price_prediction.py`
+- **Blank Lines (E302):** Improper spacing of blank lines.
+- **Line Length (E501):** Several lines exceeding recommended lengths.
+- **Whitespace Issues (E221, W291):** Extra spaces before operators and trailing whitespace.
+- **Missing Newline at EOF (W292)**
+
+Resolving these issues will significantly enhance code clarity and maintainability.
 
 ## Known Issues
 we’ve identified several issues that are actively tracked in the repo’s Issues tab:
@@ -340,7 +378,7 @@ we’ve identified several enhancements to make the tool even more useful:
 - **Offer real-time scoring** via an API so users can get up-to-date predictions on live data  
 - **User personalization**: allow filtering by lifestyle preferences (e.g., family-friendly, modern urban, rural retreat)  
 - **Cloud-scale processing**: move from local subset to full dataset in a scalable environment (e.g., AWS/GCP)   
-
+- **Code formatting improvements**: resolve PEP8 issues outlined in the [Future Code Quality Fixes](#future-code-quality-fixes-linting-issues) section to enhance maintainability and meet coding standards.
 
 ## License & Contact
 this project is licensed under the MIT License.  
