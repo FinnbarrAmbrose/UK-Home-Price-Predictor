@@ -39,7 +39,7 @@ def correlation_analysis_body() -> None:
 
 # 3 ·Price distribution (hist + KDE)
 
-    st.subheader("💷 Price distribution")
+    st.subheader("Price distribution")
 
     hist_fig = px.histogram(
         df_filt,

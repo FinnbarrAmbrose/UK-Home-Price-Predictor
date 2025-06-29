@@ -50,9 +50,9 @@ def project_hypothesis_body():
     st.write(f"- p-value: **{p_val2:.4f}**")
 
     if p_val2 < 0.05:
-        st.success("✅ Reject H₀ — property type affects mean price.")
+        st.success("Reject H₀ — property type affects mean price.")
     else:
-        st.info("ℹ️ Fail to reject H₀ — no significant difference between types.")
+        st.info("Fail to reject H₀ — no significant difference between types.")
 
     st.caption(
         "H1 uses Welch’s t-test (unequal variances). "
