@@ -185,3 +185,19 @@ we gathered several key findings from our analysis:
 - because the model uses only 2017 data, it’s not ready for current‐day predictions without retraining on more recent data  
 
 these insights directly address our business requirements by demonstrating trends, validating hypotheses, and highlighting the need for updated data in production.
+
+## Testing
+we implemented both manual and automated tests to ensure data integrity and model reliability:
+
+- **Data-quality tests (pytest):** verifies column counts, no unexpected nulls, correct data types.  
+- **Model-regression tests (pytest):** runs the final pipeline on a small sample and checks MAE remains under threshold.  
+- **CI/CD integration:** a GitHub Actions workflow runs all tests and executes notebooks on every push and pull request.  
+
+
+## Known Issues
+we’ve identified several issues that are actively tracked in the repo’s Issues tab:
+
+- prediction errors at extreme price ranges (top 1% of values)  
+- occasional Streamlit widget misalignment on mobile devices  
+- non-numeric columns slipping through the pipeline (e.g., town/city, county flags)  
+- dataset size (~22 million rows) can overwhelm local machines; currently we load only the 1,000 most recent 2017 records as a workaround  
