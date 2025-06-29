@@ -190,6 +190,14 @@ we split the cleaned data into an 80/20 train/test set. using the feature-engine
 the best cross-validation results were with `max_depth=5` and `n_estimators=100` (CV MAE: 78,528).  
 ![grid search results](images/model_gridsearch.png)
 
+final evaluation on the test set yielded:  
+- MAE: £69,667  
+- RMSE: £118,120  
+- R²: 0.53  
+
+> MAE ≥ £5,000, the model does **not** meet the original success threshold on historical data.
+
+the final pipeline is saved to:  outputs/models/house_price_pipeline.pkl
 
 ## Results & Insights
 we gathered several key findings from our analysis:
