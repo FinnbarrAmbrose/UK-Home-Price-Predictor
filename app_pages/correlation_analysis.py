@@ -6,7 +6,7 @@ import plotly.figure_factory as ff
 from pathlib import Path
 import numpy as np
 
-DATA_PATH = Path("../outputs/datasets/collection/HousePricesRecords_clean.csv")
+DATA_PATH = Path("outputs/datasets/collection/HousePricesRecords_clean.csv")
 
 
 def correlation_analysis_body() -> None:
