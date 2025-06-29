@@ -38,7 +38,7 @@ def page_summary_body() -> None:
         st.warning("Cleaned CSV not found – run Notebook 02 to generate it.")
 
     # KPI metrics 
-    st.subheader("⚙️ Latest model metrics")
+    st.subheader("Latest model metrics")
 
     col1, col2, col3 = st.columns(3)
 

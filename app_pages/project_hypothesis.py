@@ -8,7 +8,7 @@ DATA_PATH = Path("../outputs/datasets/collection/HousePricesRecords_clean.csv")
 
 def project_hypothesis_body():
     """Hypothesis Validation – t-test & ANOVA on the cleaned dataset."""
-    st.title("🔬 Hypothesis Validation")
+    st.title("Hypothesis Validation")
     st.markdown(
         "Use statistical tests to confirm or reject our market hypotheses."
     )
@@ -32,9 +32,9 @@ def project_hypothesis_body():
     st.write(f"- p-value: **{p_val:.4f}**")
 
     if p_val < 0.05:
-        st.success("✅ Reject H₀ — new houses are significantly more expensive.")
+        st.success(" Reject H₀ — new houses are significantly more expensive.")
     else:
-        st.info("ℹ️ Fail to reject H₀ — no significant price difference found.")
+        st.info(" Fail to reject H₀ — no significant price difference found.")
 
     st.subheader("H2: Does mean price vary by property type?")
     
