@@ -165,6 +165,15 @@ jupyter notebook         # explore the notebooks
 streamlit run app.py     # launch the dashboard
 ```
 
+**Environment variables**
+
+$PORT (auto-assigned by platform)
+
+CORS is disabled via --server.enableCORS false
+
+note: Python version is pinned to 3.12 via the `.python-version` file.
+
+
 ## Data Ingestion & Cleaning
 in notebook 1, we use the Kaggle API to download the raw CSV into `inputs/datasets/raw/price_paid_records.csv`, then copy it to `outputs/datasets/collection/`.  
 
@@ -174,6 +183,13 @@ in notebook 2, we clean the data by:
 - encoding `property_type`, `old_new`, and `duration` as numeric or one-hot flags  
 - applying a log transform to `price`  
 - saving the cleaned dataset to `outputs/datasets/collection/HousePricesRecords_clean.csv`
+
+## Modeling & Evaluation
+we split the cleaned data into an 80/20 train/test set. using the feature-engine pipeline from notebook 2, we first established a linear regression baseline and then tuned a RandomForestRegressor with grid search over `n_estimators` (100, 200, 300) and `max_depth` (None, 5, 10).
+
+the best cross-validation results were with `max_depth=5` and `n_estimators=100` (CV MAE: 78,528).  
+![grid search results](images/model_gridsearch.png)
+
 
 ## Results & Insights
 we gathered several key findings from our analysis:
