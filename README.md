@@ -73,12 +73,11 @@ UK-HOME-PRICE-PREDICTOR
  ```
 
 ## Dataset
-
 We use the HM Land Registry “UK Housing Prices Paid” dataset from Kaggle, which contains **22,489,348** records spanning from **1995-01-01** to **2017-06-29**. The raw CSV (≈767 MB zipped) is stored at: inputs/datasets/raw/price_paid_records.csv
 
 It includes columns such as `transaction_unique_identifier`, `price`, `date_of_transfer`, `property_type` (D, S, T, F, O), `old_new` (Y/N), `duration` (F/L), `town_city`, `district`, `county`, `ppd_category_type`, and `record_status`.  
 
-![data preview](images/dataset_preview.png)  
+data preview: Columns in CSV: ['Transaction unique identifier', 'Price', 'Date of Transfer', 'Property Type', 'Old/New', 'Duration', 'Town/City', 'District', 'County', 'PPDCategory Type', 'Record Status - monthly file only']
 
 Released under the Open Government Licence 3.0 (© Crown 2017).
 
@@ -169,10 +168,10 @@ we built a Streamlit app with five pages, matching the navigation bar:
    ![predict page](images/predict_page.png)
 
 4. **Hypothesis Validation** – statistical test results (t-tests, ANOVA) with decision verdicts  
-   ![hypothesis page](images/hypothesis1_ttest.png)
+   ![hypothesis page](images/hypothesis_page.png)
 
 5. **Machine Learning Model** – model performance metrics and details of the trained pipeline  
-   ![model page](images/model_performance.png)
+   ![model page](images/model_performance_page.png)
 
 
 ## Technologies
@@ -203,7 +202,7 @@ _dev tools (in `requirements-dev.txt`):_
 We deploy the app on Heroku or Streamlit Cloud. below are the key files and commands:
 
 **Live Demo:**  
-https://house-price-for-uk-8c78f9120642.herokuapp.com/
+https://uk-home-price-predictor-475658c4a389.herokuapp.com/
 
 **Procfile**  
 ```bash
@@ -262,7 +261,6 @@ final evaluation on the test set yielded:
 - RMSE: £118,120  
 - R²: 0.53  
 
-> **⚠️ Warning:** Because MAE ≥ £5,000, the model does **not** meet the original success threshold on historical data.
 
 the final pipeline is saved to:  outputs/models/house_price_pipeline.pkl
 
