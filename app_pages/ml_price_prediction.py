@@ -88,3 +88,20 @@ def ml_price_prediction_body():
         c6.metric("Test R²", "n/a")
         st.info("Run Notebook 05 to regenerate `metrics.json` before these appear.")
 
+# 6) Feature importances 
+    st.subheader("Feature Importances (Top 10)")
+
+    ohe = pipeline.named_steps["preprocessor"].named_transformers_["cat"]
+    cat_cols = ohe.get_feature_names_out(
+        pipeline.named_steps["preprocessor"].transformers_[1][2]
+    )
+    num_cols = list(pipeline.named_steps["preprocessor"].transformers_[0][2])
+    feature_names = num_cols + list(cat_cols)
+
+    importances = pipeline.named_steps["regressor"].feature_importances_
+    idx_sorted  = np.argsort(importances)[-10:]
+
+    fig, ax = plt.subplots()
+    ax.barh(np.array(feature_names)[idx_sorted], importances[idx_sorted])
+    ax.set_title("Top 10 Feature Importances")
+    st.pyplot(fig)
