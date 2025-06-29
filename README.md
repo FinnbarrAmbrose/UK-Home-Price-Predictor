@@ -233,6 +233,17 @@ we’ve identified several issues that are actively tracked in the repo’s Issu
 - non-numeric columns slipping through the pipeline (e.g., town/city, county flags)  
 - dataset size (~22 million rows) can overwhelm local machines; currently we load only the 1,000 most recent 2017 records as a workaround  
 
+## Credits / Acknowledgements
+- **Data source:** HM Land Registry “UK Housing Prices Paid” via Kaggle  
+- **Inspiration & Example Repos:**  
+  - Amareteklay’s [`heritage-housing-issues`](https://github.com/Amareteklay/heritage-housing-issues)  
+  - smtilson’s [`pp5-ml-dashboard`](https://github.com/smtilson/pp5-ml-dashboard)  
+- **Libraries & Tools:**  
+  scikit-learn, Streamlit, XGBoost, feature-engine, pandas, NumPy, Matplotlib, Plotly, SciPy, Yellowbrick, joblib, and others  
+- **Collaborators & Mentors:**  
+  - my project mentor [`Mo Shami`](https://www.linkedin.com/in/moshami/)
+  - classmates on Slack  
+
 ## Future Work & Roadmap
 we’ve identified several enhancements to make the tool even more useful:
 
@@ -244,6 +255,7 @@ we’ve identified several enhancements to make the tool even more useful:
 - **Offer real-time scoring** via an API so users can get up-to-date predictions on live data  
 - **User personalization**: allow filtering by lifestyle preferences (e.g., family-friendly, modern urban, rural retreat)  
 - **Cloud-scale processing**: move from local subset to full dataset in a scalable environment (e.g., AWS/GCP)   
+
 
 ## License & Contact
 this project is licensed under the MIT License.  
