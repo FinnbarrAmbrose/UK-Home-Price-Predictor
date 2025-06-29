@@ -2,3 +2,4 @@
 jupyter_notebooks/
 inputs/
 **/*.ipynb
+requirements-dev.txt
