@@ -1,0 +1,4 @@
+# .slugignore
+jupyter_notebooks/
+inputs/
+**/*.ipynb
