@@ -4,7 +4,7 @@ from pathlib import Path
 from scipy import stats
 
 
-DATA_PATH = Path("../outputs/datasets/collection/HousePricesRecords_clean.csv")
+DATA_PATH = Path("outputs/datasets/collection/HousePricesRecords_clean.csv")
 
 def project_hypothesis_body():
     """Hypothesis Validation – t-test & ANOVA on the cleaned dataset."""
