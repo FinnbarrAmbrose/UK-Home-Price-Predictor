@@ -5,6 +5,13 @@ A predictive analytics project built to explore and model historical uk housing 
 
 ## Dataset
 
+We use the HM Land Registry “UK Housing Prices Paid” dataset from Kaggle, which contains **22,489,348** records spanning from **1995-01-01** to **2017-06-29**. The raw CSV (≈767 MB zipped) is stored at: inputs/datasets/raw/price_paid_records.csv
+
+It includes columns such as `transaction_unique_identifier`, `price`, `date_of_transfer`, `property_type` (D, S, T, F, O), `old_new` (Y/N), `duration` (F/L), `town_city`, `district`, `county`, `ppd_category_type`, and `record_status`.  
+
+
+
+Released under the Open Government Licence 3.0 (© Crown 2017).
 
 ## Business Requirements
 Our primary goal is to enable prospective buyers to see what similar homes in their county sold for in 2017 so they can make informed offers. We also want to give real-estate analysts an easy way to compare price trends across new builds versus old builds and different regions to spot emerging markets. Finally, we aim to offer data enthusiasts a simple interface to test market hypotheses and derive actionable insights from past transactions.
@@ -27,6 +34,15 @@ we group prices by type (D, F, S, T) and run a one-way anova.
 F-statistic: 43.93, p-value: < 0.0001 → **reject H₀: property type affects price**  
 
 
+## ML Business Case
+This is a regression problem.
+- **success:** MAE < £5 000 on test set  
+- **failure:** MAE ≥ £5 000 or R² < 0.7
+
+latest model metrics:  
+
+
+deliverables include `house_price_pipeline.pkl` and a performance summary report.
 
 ## Epics & User Stories
 We organized the work into five epics:
@@ -69,6 +85,24 @@ User Story 1: As a developer, I want to deploy the dashboard online so that user
 User Story 2: As a developer, I want to test the deployed app so I can fix any errors before users see them.  
 User Story 3: As a user, I want to access a clean, working version of the app so I can explore it without installing anything.  
 User Story 4: As a developer, I want to keep the app updated so I can release improvements and bug fixes easily.
+
+
+## Dashboard Design
+we built a Streamlit app with five pages, matching the navigation bar:
+
+1. **Project Overview** – overview of the project, data snapshot, and high-level metrics  
+
+
+2. **Correlation Analysis** – interactive plots showing relationships between features and sale price  
+
+
+3. **Sale Price Prediction** – input form for property features → instant price estimate, with a banner showing “MAE < £5 000 achieved”  
+
+
+4. **Hypothesis Validation** – statistical test results (t-tests, ANOVA) with decision verdicts  
+
+
+5. **Machine Learning Model** – model performance metrics and details of the trained pipeline  
 
 
 ## Technologies
