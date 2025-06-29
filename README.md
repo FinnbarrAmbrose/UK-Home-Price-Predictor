@@ -244,6 +244,30 @@ we’ve identified several issues that are actively tracked in the repo’s Issu
   - my project mentor [`Mo Shami`](https://www.linkedin.com/in/moshami/)
   - classmates on Slack  
 
+### YouTube Tutorials & Learning Resources
+Here are some videos I found particularly helpful—replace with the ones you watched:
+
+- **Pandas Data Cleaning**  
+  *“Data Cleaning in Pandas | Python Pandas Tutorials”*  
+  `https://www.youtube.com/watch?v=bDhvCp3_lYw`
+
+- **Plotly EDA & Mapping**  
+  *“Introduction to Interactive Visualization: Plotly Express”*  
+  `https://www.youtube.com/watch?v=61YZaYnoWRQ`
+
+- **Statistical Testing with SciPy**  
+  *“How to Interpret the Output of Simple Linear Regression in Python”*  
+  `https://www.youtube.com/watch?v=NNrJDMhpWPA`
+
+- **Streamlit Dashboard Development**  
+  *“
+Build and Deploy a Multi-Page Web Application Using Python (Streamlit)”*  
+  `https://www.youtube.com/watch?v=9n4Ch2Dgex0`
+
+- **Deploying Streamlit Apps**  
+  *“Deploy Streamlit App on Heroku | Streamlit Tutorials”*  
+  `https://www.youtube.com/watch?v=W4CBnt0nLls`
+
 ## Future Work & Roadmap
 we’ve identified several enhancements to make the tool even more useful:
 
