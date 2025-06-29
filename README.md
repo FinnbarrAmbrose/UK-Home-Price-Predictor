@@ -9,6 +9,69 @@ A predictive analytics project built to explore and model historical uk housing 
 
 designed for prospective buyers, sellers, analysts, and data enthusiasts who want a user-friendly interface for deep dives into the uk property market’s past performance.
 
+## Table of Contents
+
+- [House-price-for-uk](#house-price-for-uk)
+  - [Table of Contents](#table-of-contents)
+  - [Project structure](#project-structure)
+  - [Dataset](#dataset)
+  - [Business Requirements](#business-requirements)
+  - [Hypotheses](#hypotheses)
+  - [ML Business Case](#ml-business-case)
+  - [Epics \& User Stories](#epics--user-stories)
+  - [Dashboard Design](#dashboard-design)
+  - [Technologies](#technologies)
+  - [Deployment \& Usage](#deployment--usage)
+  - [Data Ingestion \& Cleaning](#data-ingestion--cleaning)
+  - [Modeling \& Evaluation](#modeling--evaluation)
+  - [Results \& Insights](#results--insights)
+  - [Testing](#testing)
+  - [Known Issues](#known-issues)
+  - [Credits / Acknowledgements](#credits--acknowledgements)
+    - [YouTube Tutorials \& Learning Resources](#youtube-tutorials--learning-resources)
+  - [Future Work \& Roadmap](#future-work--roadmap)
+  - [License \& Contact](#license--contact)
+
+## Project structure 
+```bash
+UK-HOME-PRICE-PREDICTOR
+├── .devcontainer
+├── app_pages
+│   ├── __init__.py
+│   ├── correlation_analysis.py
+│   ├── ml_price_prediction.py
+│   ├── multipage.py
+│   ├── page_summary.py
+│   ├── project_hypothesis.py
+│   └── sales_price_prediction.py
+├── inputs
+│   └── datasets
+│       └── raw
+│           └── price_paid_records.csv
+├── jupyter_notebooks
+│   ├── 01-Data Collection.ipynb
+│   ├── 02-Data Cleaning.ipynb
+│   ├── 03-Exploratory Data Analysis.ipynb
+│   ├── 04-Hypothesis Testing.ipynb
+│   └── 05-Model Training and Evaluation.ipynb
+├── outputs
+│   ├── datasets
+│   │   └── collection
+│   │       └── HousePricesRecords_clean.csv
+│   ├── models
+│   │   ├── house_price_pipeline.pkl
+│   │   └── metrics.json
+├── .gitignore
+├── .python-version
+├── .slugignore
+├── app.py
+├── Procfile
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+└── setup.sh
+ ```
+
 ## Dataset
 
 We use the HM Land Registry “UK Housing Prices Paid” dataset from Kaggle, which contains **22,489,348** records spanning from **1995-01-01** to **2017-06-29**. The raw CSV (≈767 MB zipped) is stored at: inputs/datasets/raw/price_paid_records.csv
