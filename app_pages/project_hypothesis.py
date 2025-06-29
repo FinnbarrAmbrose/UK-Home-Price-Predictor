@@ -36,4 +36,25 @@ def project_hypothesis_body():
     else:
         st.info("ℹ️ Fail to reject H₀ — no significant price difference found.")
 
+    st.subheader("H2: Does mean price vary by property type?")
     
+    prop_cols = ["Property_D", "Property_F", "Property_S", "Property_T"]
+    groups = [
+        df[df[col] == 1]["Price"].dropna()
+        for col in prop_cols
+    ]
+
+    
+    f_stat, p_val2 = stats.f_oneway(*groups)
+    st.write(f"- F-statistic: **{f_stat:.2f}**")
+    st.write(f"- p-value: **{p_val2:.4f}**")
+
+    if p_val2 < 0.05:
+        st.success("✅ Reject H₀ — property type affects mean price.")
+    else:
+        st.info("ℹ️ Fail to reject H₀ — no significant difference between types.")
+
+    st.caption(
+        "H1 uses Welch’s t-test (unequal variances). "
+        "H2 uses one-way ANOVA across Detached, Flat, Semi, Terraced."
+    )
